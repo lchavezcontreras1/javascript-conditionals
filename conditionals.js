@@ -88,11 +88,7 @@ $(document).ready(function () {
 
     function drawCard(event) {
         event.preventDefault();
-
-        // Generate a random card face value (1 - 13)
         let faceValue = Math.floor(Math.random() * 13) + 1;
-        //Ace(1) 2-10 Jack(11) Queen(12) King(13)
-        // Generate a random suit (1 - 4)
         let face = "";
         if(faceValue===1)
             face = "Ace";
@@ -105,8 +101,6 @@ $(document).ready(function () {
         else
             face=faceValue;
         let suit = Math.floor(Math.random() * 4) + 1;
-        // For the suits, 1 is "Clubs", 2 is "Spades",
-        // 3 is "Hearts", 4 is "Diamonds"
         if(suit===1)
             suit = " of Clubs"
         else if(suit===2)
@@ -115,12 +109,16 @@ $(document).ready(function () {
             suit = " of Hearts"
         else
             suit = " of Diamonds"
+        let description = face + suit;
+        $("p#drawCardOutput").text(description);
+        // Generate a random card face value (1 - 13)
+        //Ace(1) 2-10 Jack(11) Queen(12) King(13)
+        // Generate a random suit (1 - 4)
+        // For the suits, 1 is "Clubs", 2 is "Spades", 3 is "Hearts", 4 is "Diamonds"
         // Create the description of the card, for example
         // "King of Spades" or "2 of Hearts"
-        let description = face + suit;
         // Print the card's description to the <p> with
         // ID of "drawCardOutput"
-        $("p#drawCardOutput").text(description);
     }
 
 });
